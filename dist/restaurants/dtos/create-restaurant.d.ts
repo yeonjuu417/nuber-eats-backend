@@ -1,4 +1,4 @@
-export declare class Restaurant {
+export declare class CreateRestaurantInputDto {
     name: string;
     isVegan?: boolean;
     address: string;

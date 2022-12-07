@@ -14,10 +14,14 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.RestaurantsResolver = void 0;
 const graphql_1 = require("@nestjs/graphql");
+const create_restaurant_1 = require("./dtos/create-restaurant");
 const restaurant_entity_1 = require("./restaurant.entity");
 let RestaurantsResolver = class RestaurantsResolver {
     restaurants(veganOnly) {
         return [];
+    }
+    createRestaurant(createRestaurantInputDto) {
+        return true;
     }
 };
 __decorate([
@@ -27,6 +31,13 @@ __decorate([
     __metadata("design:paramtypes", [Boolean]),
     __metadata("design:returntype", Array)
 ], RestaurantsResolver.prototype, "restaurants", null);
+__decorate([
+    (0, graphql_1.Mutation)(() => Boolean),
+    __param(0, (0, graphql_1.Args)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [create_restaurant_1.CreateRestaurantInputDto]),
+    __metadata("design:returntype", Boolean)
+], RestaurantsResolver.prototype, "createRestaurant", null);
 RestaurantsResolver = __decorate([
     (0, graphql_1.Resolver)((of) => restaurant_entity_1.Restaurant)
 ], RestaurantsResolver);
